@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)  # libera para chamadas externas (ex: FlutterFlow)
@@ -70,4 +71,5 @@ def cotacao_cripto():
     })
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
