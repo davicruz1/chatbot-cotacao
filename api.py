@@ -6,6 +6,11 @@ import os
 app = Flask(__name__)
 CORS(app)  # libera para chamadas externas (ex: FlutterFlow)
 
+# Rota raiz para teste
+@app.route("/")
+def home():
+    return "✅ API de cotação de moedas e criptos funcionando 🚀"
+
 @app.route("/cotacao/moeda")
 def cotacao_moeda():
     codigo = request.args.get("codigo", "").upper()
